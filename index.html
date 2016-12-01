@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>War</title>
+    <script
+  src="https://code.jquery.com/jquery-3.1.1.js"
+  integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+  crossorigin="anonymous"></script>
+  <script src="./js/scripts.js" charset="utf-8"></script>
+
+    <link rel="stylesheet" href="./css/styles.css" media="screen" title="no title">
+    <link href="https://fonts.googleapis.com/css?family=Ultra" rel="stylesheet">
+  </head>
+  <body>
+      <header>
+        <h1>WAR</h1>
+        <div class="score" id="player1">
+          <p1 id = 'player1Score'>0<br />
+            <span class = 'playerTag'>Player 1</span>
+          </p>
+        </div>
+        <div class="score" id="player2">
+          <p1 id = 'player2Score'>0<br />
+            <span class = 'playerTag'>Player 2</span>
+          </p>
+        </div>
+      </header>
+
+    <div class = 'board'>
+        <img class = 'deck' id = 'red_deck' src="./img/Red Deck Image.png" alt="" />
+        <img class = 'deck' id = 'blue_deck' src="./img/Blue Deck Image.png" alt="" />
+        <img class = 'card' id = 'p1Card' src="./img/c_11.png" alt="" />
+        <img class = 'card' id = 'p2Card' src="./img/d_14.png" alt="" />
+
+
+    </div>
+
+    <!-- I am testing modals below this line -->
+
+    <button id="myBtn">Start Game</button>
+    <!-- <button id="myBtnP1Wins">Player1Wins</button>
+    <button id="myBtnP2Wins">Player2Wins</button> -->
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <p>Start Game</p>
+    </div>
+
+  </div>
+
+  <script>
+  //modal testing below
+  // Get the modal
+  var modal = document.getElementById('myModal');
+
+  function showModal() {
+
+    modal.style.display = "block";
+  }
+  function hideModal(){
+    modal.style.display = "none";
+  }
+
+  // Get the button that opens the modal
+  var btn = document.getElementById("myBtn");
+  // var btn = document.getElementById("myBtnP1Wins");
+  // var btn = document.getElementById("myBtnP2Wins")
+
+
+  // close modal on click outside of modal
+  window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+  }
+  </script>
+  </body>
+</html>
