@@ -3,26 +3,30 @@
   <head>
     <meta charset="utf-8">
     <title>War</title>
-    <script
-  src="https://code.jquery.com/jquery-3.1.1.js"
+
+  <script src="https://code.jquery.com/jquery-3.1.1.js"
   integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
   crossorigin="anonymous"></script>
   <script src="./js/scripts.js" charset="utf-8"></script>
-
     <link rel="stylesheet" href="./css/styles.css" media="screen" title="no title">
     <link href="https://fonts.googleapis.com/css?family=Ultra" rel="stylesheet">
   </head>
   <body>
+
+    <video autoplay loop id="video-background" muted>
+  <source src="./img/battliefield_bground.mp4" type="video/mp4">
+</video>
+
       <header>
         <h1>WAR</h1>
         <div class="score" id="player1">
           <p1 id = 'player1Score'>0<br />
-            <span class = 'playerTag'>Player 1</span>
-          </p>
+            <div class = 'playerTag'>Player 1</div>
+
         </div>
         <div class="score" id="player2">
           <p1 id = 'player2Score'>0<br />
-            <span class = 'playerTag'>Player 2</span>
+            <div class = 'playerTag'>Player 2</div>
           </p>
         </div>
       </header>
@@ -30,54 +34,112 @@
     <div class = 'board'>
         <img class = 'deck' id = 'red_deck' src="./img/Red Deck Image.png" alt="" />
         <img class = 'deck' id = 'blue_deck' src="./img/Blue Deck Image.png" alt="" />
-        <img class = 'card' id = 'p1Card' src="./img/c_11.png" alt="" />
-        <img class = 'card' id = 'p2Card' src="./img/d_14.png" alt="" />
-
-
+        <button id = 'dealBtn'>Click Here to Deal Hand</button>
+        <img class = 'card' id = 'p1Card' src = "" alt="" />
+        <img class = 'card' id = 'p2Card' src="" alt="" />
     </div>
-
-    <!-- I am testing modals below this line -->
-
-    <button id="myBtn">Start Game</button>
-    <!-- <button id="myBtnP1Wins">Player1Wins</button>
-    <button id="myBtnP2Wins">Player2Wins</button> -->
 
     <!-- The Modal -->
     <div id="myModal" class="modal">
-
-
     <!-- Modal content -->
-    <div class="modal-content">
-      <p>Start Game</p>
+      <div class="modal-content">
+        <p id = 'modalText'>Click Anywhere to Start Game</p>
+      </div>
     </div>
+    <script>
+    //initialize game start
+    var p1Score = 0
+    var p2Score = 0
 
-  </div>
+    //set playerScore as variable
 
-  <script>
-  //modal testing below
-  // Get the modal
-  var modal = document.getElementById('myModal');
+    var p1ScoreBoard = document.getElementById('player1Score');
+    var p2ScoreBoard = document.getElementById('player2Score');
 
-  function showModal() {
+    //populate card image on button click
 
-    modal.style.display = "block";
-  }
-  function hideModal(){
-    modal.style.display = "none";
-  }
+    var dealBtnClick = document.getElementById('dealBtn');
 
-  // Get the button that opens the modal
-  var btn = document.getElementById("myBtn");
-  // var btn = document.getElementById("myBtnP1Wins");
-  // var btn = document.getElementById("myBtnP2Wins")
+    //sets card image based on shuffled deck index position 0 and 1
+    dealBtnClick.addEventListener('click', function(){
+    shuffle(cardDeck),
 
+    $('#p1Card').attr('src', cardDeck[cardDeck.length - 1].imgPath)
+    $('#p2Card').attr('src', cardDeck[cardDeck.length - 2].imgPath)
 
-  // close modal on click outside of modal
-  window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
+    //removes 2 cards from deck per hand
+    var p1Card = cardDeck.pop()
+    var p2Card = cardDeck.pop()
+
+    //card evaluation logic
+    if(p1Card.value > p2Card.value){
+        p1Score = p1Score + 1;
+        p1ScoreBoard.innerText = p1Score;
+        showModalP1Wins();
+    } else if (p2Card.value > p1Card.value){
+        p2Score = p2Score + 1;
+        p2ScoreBoard.innerText = p2Score;
+        showModalP2Wins();
+    } else{
+      console.log("Push!");
+      showModalPush();
     }
-  }
-  </script>
+    //Determine Winner
+    if(p1Score ===10){
+      console.log("PLAYER 1 WINSSSS!!!!!");
+      showModalP1WinsGame();
+    } else if(p2Score ===10){
+      console.log("PLAYER 2 WINSSS!!!!");
+      showModalP2WinsGame();
+    }
+
+    });
+
+
+    //MODAL CODE
+    // Get the modal
+    var modal = document.getElementById('myModal');
+    var modalText = document.getElementById('modalText');
+    var winningModal = document.getElementById('myWinningModal');
+    var winningModalText = document.getElementById('winningModalText');
+
+    //modal by outcome **NEEDS TO BE REFACTORED**
+
+    function showModalP1Wins() {
+      modal.style.display = "block";
+      modalText.innerText = modalContent[0].text;
+    }
+
+    function showModalP2Wins() {
+      modal.style.display = "block";
+      modalText.innerText = modalContent[1].text;
+    }
+
+    function showModalPush() {
+      modal.style.display = "block";
+      modalText.innerText = modalContent[2].text;
+    }
+
+    function showModalP1WinsGame() {
+      modal.style.display = "block";
+      modalText.innerText =  modalContent[3].text;
+    }
+
+    function showModalP2WinsGame() {
+      modal.style.display = "block";
+      modalText.innerText =  modalContent[4].text;
+    }
+
+
+    // close modal on click outside of modal
+    window.onclick = function(event) {
+      if (event.target == modal) {
+          modal.style.display = "none";
+      }
+    }
+
+
+    </script>
+
   </body>
 </html>
