@@ -50,12 +50,14 @@ War is a game based on a 52 card deck that pits 2 players against each other. A 
 
 
 
-## **Technologies Used**
+## **Technologies/Tools Used**
 * HTML
 * CSS
 * Javascript
 * jQuery
-* iMovie(mp4 editing)
+* iMovie (mp4 editing)
+* Trello (Project Tracking)
+* Mockplus (Wireframing)
 
 
 ## **Credit/References**
