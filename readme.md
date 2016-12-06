@@ -5,9 +5,9 @@
 
 ## **Game Description**
 
-War is a game based on a 52 card deck that pits 2 players against each other. A hand is comprised of a randomly dealsingle card randomly dealt to each player. The player with the higher card value wins the hand and receives one point. 
+War is a game based on a 52 card deck that pits 2 players against each other. A hand is comprised of a randomly dealt card randomly distributed to each player. The player with the higher card value wins the hand and receives one point.
 
-## **Game Rules**
+##I **Game Rules**
 
 * Card values are based on a "2 low/Ace high" system. 
 * Suits are not considered
@@ -48,13 +48,12 @@ War is a game based on a 52 card deck that pits 2 players against each other. A 
 #####Player 1 Wins GAme
 ![Player1WinsGame](https://raw.githubusercontent.com/kmora3/war/master/img/Player1_Wins_Game.png)
 
-
-
 ## **Technologies/Tools Used**
 * HTML
 * CSS
 * Javascript
 * jQuery
+* Google Web Fonts
 * iMovie (mp4 editing)
 * Trello (Project Tracking)
 * Mockplus (Wireframing)
@@ -63,9 +62,10 @@ War is a game based on a 52 card deck that pits 2 players against each other. A 
 ## **Credit/References**
 * **Looping Video**: [http://codepen.io/mattgrosswork/pen/jrdwK/]()
 * **Shuffling Algorithm**: [https://bost.ocks.org/mike/shuffle/]()
-* **Card Images:** Byron Knoll - [http://code.google.com/p/vector-playing-cards/]()
+* **Card Images**: Byron Knoll - [http://code.google.com/p/vector-playing-cards/]()
 * **Rear Card Images**: [http://www.freestockphotos.biz/]()
-* **Battlefield Video Loop:AK87Berlin(Youtube Handle)** [https://www.youtube.com/channel/UCdYL8e7sO68TvXt4RbGYuHg]()
+* **Battlefield Video Loop:AK87Berlin(Youtube Handle)**: [https://www.youtube.com/channel/UCdYL8e7sO68TvXt4RbGYuHg]()
+* **Google Web Font (Ulta Family)**: [https://fonts.google.com/specimen/Ultra]()
 
 
 ## **Feature Backlog**
