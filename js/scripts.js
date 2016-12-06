@@ -58,7 +58,7 @@ var cardDeck = [{name:'d2',suit: 'diamond',faceValue:'2',value: 2, imgPath:'./im
 
 
 
-  //Modal array
+  //Modal array//
   var modalContent = [ {name: 'winner1ModalHand', text:'Player 1 Wins Hand!'},
                 {name: 'winner2ModalHand', text:'Player 2 Wins Hand!'},
                 {name: 'pushModalHand', text:'Push - No Winner'},
