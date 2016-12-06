@@ -1,7 +1,6 @@
 
 
 header{
-  /*background-color: #cccccc;*/
   /*transparency for video*/
   background: rgba(0, 0, 0, 0.4);
   height: 150px;
@@ -29,14 +28,16 @@ h1{
 
 #player1{
   background-color: black;
-  position: fixed;
-  left: 1em;
+  position: relative;
+  left: 16px;
+  top: 120px;
 }
 
 #player2{
   background-color: black;
-  position: fixed;
-  right: 1em;
+  position: relative;
+  left: 1177px;
+  top: 16px;
 }
 
 #p1Card{
@@ -51,8 +52,8 @@ h1{
   padding-top: 30em;
 }
 
-button{
-  background-color: #4CAF50; /* Green */
+#dealBtn {
+  background-color: #4CAF50;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -65,6 +66,21 @@ button{
     top: 300px;
 }
 
+#refresh {
+    background-color: black;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    position: absolute;
+    left: 600px;
+    top: 620px;
+    z-index: 1;
+}
+
 p1{
   font-size: 50px;
   color: white;
@@ -74,14 +90,17 @@ p1{
 }
 
 #p1Tag{
-  position: relative;
+  position: fixed;
   left: -226px;
+  top: 312px;
 
 }
 
 #p2Tag{
-  position: relative;
-  left: 545px;
+  position: fixed;
+  left: 937px;
+  top: 312px;
+
 }
 
 .playerTag{
@@ -98,14 +117,13 @@ p1{
   background: rgba(0, 0, 0, 0.4);
   width: auto;
   height: 600px;
-  /*background-image:url('../img/camo_background.png');*/
 }
 
 .deck{
   zoom: 20%;
   display: block;
   margin-left:75px;
-  padding-top: 1000px;
+  padding-top: 1075px;
 }
 
 .card{
@@ -125,9 +143,9 @@ position: fixed;
 right: 20em;
 }
 
-/*modal testing below*/
 
-/* The Modal (background) */
+
+/* Modal Background */
 .modal {
     padding-left:15px;
     display: none; /* Hidden by default */
@@ -143,26 +161,27 @@ right: 20em;
 }
 
 
-/* Modal Content/Box */
+/* Modal Content */
 .modal-content {
     font-family: ultra;
     background-color: #ff751a;
-    margin: 40% auto;
+    margin: 500px auto 50px;
     padding: 20px;
     border: 1px solid black;
-    height: 15%;
+    height: 7%;
     width: 20%;
     text-align: center;
 }
 
+/* Modal Content for Winning Hand */
  .modal .winningModal {
   font-family: ultra;
   background-color: grey;
-  margin: 40% auto;
+  argin: 500px auto 50px;
   padding: 20px;
   border: 1px solid black;
-  height: 20%;
-  width: 20%;
+  height: 200px;
+  width: 400px;
   text-align: center;
 }
 

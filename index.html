@@ -41,10 +41,14 @@
     <!-- The Modal -->
     <div id="myModal" class="modal">
     <!-- Modal content -->
-      <div class= "modal-content" >
+      <div class = "modal-content" >
         <p id = 'modalText'>Click Anywhere to Start Game</p>
       </div>
+      <div id = 'buttonHere'>
+        <!-- <button id='refresh' onClick = "refreshPage()">Click to Play New Game</button> -->
+      </div>
     </div>
+
     <script>
     //initialize game start
     var p1Score = 0
@@ -59,10 +63,12 @@
 
     var dealBtnClick = document.getElementById('dealBtn');
 
-    //sets card image based on shuffled deck index position 0 and 1
-    dealBtnClick.addEventListener('click', function(){
-    shuffle(cardDeck),
 
+
+    dealBtnClick.addEventListener('click', function(){
+    shuffle(cardDeck)
+
+    //sets card image based on shuffled deck index position 51 and 50
     $('#p1Card').attr('src', cardDeck[cardDeck.length - 1].imgPath)
     $('#p2Card').attr('src', cardDeck[cardDeck.length - 2].imgPath)
 
@@ -80,18 +86,19 @@
         p2ScoreBoard.innerText = p2Score;
         showModalP2Wins();
     } else{
-      console.log("Push!");
       showModalPush();
     }
-    //Determine Winner
+    //Determines Winner based on 10 winning hands
+
     if(p1Score ===10){
       showModalP1WinsGame();
+      genRefresh();
     } else if(p2Score ===10){
       showModalP2WinsGame();
+      genRefresh();
     }
 
     });
-
 
     //MODAL CODE
     // Get the modal
@@ -100,6 +107,7 @@
     var modalText = document.getElementById('modalText');
     var winningModal = document.getElementById('myWinningModal');
     var winningModalText = document.getElementById('winningModalText');
+
 
     //modal by outcome **NEEDS TO BE REFACTORED**
 
@@ -133,7 +141,6 @@
       modalText.innerText =  modalContent[4].text;
     }
 
-
     // close modal on click outside of modal
     window.onclick = function(event) {
       if (event.target == modal) {
@@ -141,6 +148,20 @@
       }
     }
 
+    //generates refreshPage button after player wins
+    function genRefresh(){
+    var button = document.createElement('button');
+    button.setAttribute('onClick', 'refreshPage()')
+    button.setAttribute('type','button')
+    button.setAttribute('id','refresh')
+    button.appendChild(document.createTextNode('Click to Play New Game'));
+    document.body.appendChild(button);
+    }
+
+    //reloads new game
+    function refreshPage(){
+    window.location.reload();
+    }
 
     </script>
 
