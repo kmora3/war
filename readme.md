@@ -78,4 +78,4 @@ War is a game based on a 52 card deck that pits 2 players against each other. A 
 ## **Known Bugs**
 * Scoreboard are fixed position because that's the only way i can get them to align the right way :/. Make it such that the scoreboards scroll up and down relative to the page
 * Move all javascript to scritps.js file...currently not working if JS is out of index.html
-* Compress Video...card images load slown when on the internet
+* Compress Video...card images loads slowkt when on the internet
