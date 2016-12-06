@@ -73,11 +73,25 @@ p1{
 
 }
 
+#p1Tag{
+  position: relative;
+  left: -226px;
+
+}
+
+#p2Tag{
+  position: relative;
+  left: 545px;
+}
+
 .playerTag{
+  color: white;
   font-size: 25px;
   display: inline-block;
   float: left;
-  margin-left: 20%  ;
+  margin-left: 20%;
+  position: relative;
+  top: 72px;
 }
 
 .board{
@@ -133,12 +147,23 @@ right: 20em;
 .modal-content {
     font-family: ultra;
     background-color: #ff751a;
-    margin: 40% auto; /* 15% from the top and centered */
+    margin: 40% auto;
     padding: 20px;
     border: 1px solid black;
     height: 15%;
-    width: 20%; /* Could be more or less, depending on screen size */
+    width: 20%;
     text-align: center;
+}
+
+ .modal .winningModal {
+  font-family: ultra;
+  background-color: grey;
+  margin: 40% auto;
+  padding: 20px;
+  border: 1px solid black;
+  height: 20%;
+  width: 20%;
+  text-align: center;
 }
 
 
@@ -151,15 +176,4 @@ right: 20em;
   width: auto;
   height: auto;
   z-index: -100;
-}
-
-/* Game Winning Modal Content/Box */
-.winning-modal-content
-    font-family: ultra;
-    background-color: yellow;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid black;
-    width: 50%; /* Could be more or less, depending on screen size */
-    text-align: center;
 }

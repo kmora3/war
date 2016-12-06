@@ -20,15 +20,14 @@
       <header>
         <h1>WAR</h1>
         <div class="score" id="player1">
-          <p1 id = 'player1Score'>0<br />
-            <div class = 'playerTag'>Player 1</div>
+          <p1 id = 'player1Score'>0</div>
+        <div class = 'playerTag' id ='p1Tag'>Player 1</div>
 
-        </div>
+
         <div class="score" id="player2">
-          <p1 id = 'player2Score'>0<br />
-            <div class = 'playerTag'>Player 2</div>
-          </p>
+          <p1 id = 'player2Score'>0</p>
         </div>
+        <div class = 'playerTag' id = "p2Tag">Player 2</div>
       </header>
 
     <div class = 'board'>
@@ -42,7 +41,7 @@
     <!-- The Modal -->
     <div id="myModal" class="modal">
     <!-- Modal content -->
-      <div class="modal-content">
+      <div class= "modal-content" >
         <p id = 'modalText'>Click Anywhere to Start Game</p>
       </div>
     </div>
@@ -97,6 +96,7 @@
     //MODAL CODE
     // Get the modal
     var modal = document.getElementById('myModal');
+    var $modal = $('.modal-content');
     var modalText = document.getElementById('modalText');
     var winningModal = document.getElementById('myWinningModal');
     var winningModalText = document.getElementById('winningModalText');
@@ -104,26 +104,31 @@
     //modal by outcome **NEEDS TO BE REFACTORED**
 
     function showModalP1Wins() {
+      $modal.removeClass("winningModal");
       modal.style.display = "block";
       modalText.innerText = modalContent[0].text;
     }
 
     function showModalP2Wins() {
+      $modal.removeClass("winningModal");
       modal.style.display = "block";
       modalText.innerText = modalContent[1].text;
     }
 
     function showModalPush() {
+      $modal.removeClass("winningModal");
       modal.style.display = "block";
       modalText.innerText = modalContent[2].text;
     }
 
     function showModalP1WinsGame() {
+      $modal.addClass("winningModal");
       modal.style.display = "block";
       modalText.innerText =  modalContent[3].text;
     }
 
     function showModalP2WinsGame() {
+      $modal.addClass("winningModal");
       modal.style.display = "block";
       modalText.innerText =  modalContent[4].text;
     }
