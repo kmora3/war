@@ -84,3 +84,116 @@ var cardDeck = [{name:'d2',suit: 'diamond',faceValue:'2',value: 2, imgPath:'./im
 
                     return cardDeck;
                     }
+
+                    //initialize game start
+                    var p1Score = 0
+                    var p2Score = 0
+
+                    //set playerScore as variable
+
+                    var p1ScoreBoard = document.getElementById('player1Score');
+                    var p2ScoreBoard = document.getElementById('player2Score');
+
+                    //populate card image on button click
+
+                    var dealBtnClick = document.getElementById('dealBtn');
+
+
+
+                    dealBtnClick.addEventListener('click', function(){
+                    shuffle(cardDeck)
+
+                    //sets card image based on shuffled deck index position 51 and 50
+                    $('#p1Card').attr('src', cardDeck[cardDeck.length - 1].imgPath)
+                    $('#p2Card').attr('src', cardDeck[cardDeck.length - 2].imgPath)
+
+                    //removes 2 cards from deck per hand
+                    var p1Card = cardDeck.pop()
+                    var p2Card = cardDeck.pop()
+
+                    //card evaluation logic
+                    if(p1Card.value > p2Card.value){
+                        p1Score = p1Score + 1;
+                        p1ScoreBoard.innerText = p1Score;
+                        showModalP1Wins();
+                    } else if (p2Card.value > p1Card.value){
+                        p2Score = p2Score + 1;
+                        p2ScoreBoard.innerText = p2Score;
+                        showModalP2Wins();
+                    } else{
+                      showModalPush();
+                    }
+                    //Determines Winner based on 10 winning hands
+
+                    if(p1Score ===10){
+                      showModalP1WinsGame();
+                      genRefresh();
+                    } else if(p2Score ===10){
+                      showModalP2WinsGame();
+                      genRefresh();
+                    }
+
+                    });
+
+                    //MODAL CODE
+                    // Get the modal
+                    var modal = document.getElementById('myModal');
+                    var $modal = $('.modal-content');
+                    var modalText = document.getElementById('modalText');
+                    var winningModal = document.getElementById('myWinningModal');
+                    var winningModalText = document.getElementById('winningModalText');
+
+
+                    //modal by outcome **NEEDS TO BE REFACTORED**
+
+                    function showModalP1Wins() {
+                      $modal.removeClass("winningModal");
+                      modal.style.display = "block";
+                      modalText.innerText = modalContent[0].text;
+                    }
+
+                    function showModalP2Wins() {
+                      $modal.removeClass("winningModal");
+                      modal.style.display = "block";
+                      modalText.innerText = modalContent[1].text;
+                    }
+
+                    function showModalPush() {
+                      $modal.removeClass("winningModal");
+                      modal.style.display = "block";
+                      modalText.innerText = modalContent[2].text;
+                    }
+
+                    function showModalP1WinsGame() {
+                      $modal.addClass("winningModal");
+                      modal.style.display = "block";
+                      modalText.innerText =  modalContent[3].text;
+                    }
+
+                    function showModalP2WinsGame() {
+                      $modal.addClass("winningModal");
+                      modal.style.display = "block";
+                      modalText.innerText =  modalContent[4].text;
+                    }
+
+                    // close modal on click outside of modal
+                    window.onclick = function(event) {
+                      if (event.target == modal) {
+                          modal.style.display = "none";
+                      }
+                    }
+
+                    //generates refreshPage button after player wins
+                    function genRefresh(){
+                    var button = document.createElement('button');
+                    button.setAttribute('onClick', 'refreshPage()')
+                    button.setAttribute('type','button')
+                    button.setAttribute('id','refresh')
+                    button.appendChild(document.createTextNode('Click to Play New Game'));
+                    document.body.appendChild(button);
+                    }
+
+                    //reloads new game
+                    function refreshPage(){
+                    window.location.reload();
+                    }
